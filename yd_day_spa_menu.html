@@ -74,8 +74,8 @@
 
   .spa-name {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(44px, 3.4vw, 56px);
+    font-weight: 600;
+    font-size: clamp(48px, 3.7vw, 62px);
     letter-spacing: 0.22em;
     color: var(--gold);
     line-height: 1;
@@ -85,10 +85,10 @@
 
   .spa-tagline {
     font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: clamp(10px, 0.8vw, 12px);
-    letter-spacing: 0.35em;
-    color: var(--text-light);
+    font-weight: 400;
+    font-size: clamp(13px, 1vw, 16px);
+    letter-spacing: 0.28em;
+    color: var(--gold-dark);
     text-transform: uppercase;
     margin-bottom: 20px;
   }
@@ -121,7 +121,7 @@
   .col-title {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
-    font-size: clamp(24px, 1.9vw, 30px);
+    font-size: clamp(28px, 2.2vw, 36px);
     letter-spacing: 0.18em;
     color: var(--gold);
     text-transform: uppercase;
@@ -146,23 +146,36 @@
 
   .beauty-services-list {
     justify-content: flex-start;
-    gap: 8px;
+    gap: 0;
+  }
+
+  .beauty-services-list > .service-divider {
+    margin: 4px 0;
+  }
+
+  .beauty-services-list > .addons-section {
+    margin-top: -34px;
+    transform: translateY(-16px);
   }
 
   .featured-col .service-name,
   .featured-col .beauty-name,
   .featured-col .massage-name {
-    font-size: clamp(22px, 1.65vw, 26px);
+    font-size: clamp(25px, 1.88vw, 29px);
+    line-height: 1.15;
   }
 
   .featured-col .service-price,
   .featured-col .tier-price {
-    font-size: clamp(19px, 1.4vw, 21px);
+    font-size: clamp(22px, 1.65vw, 25px);
   }
 
   .featured-col .service-duration,
   .featured-col .tier-duration {
-    font-size: clamp(13px, 1vw, 15px);
+    font-size: clamp(14px, 1.08vw, 16px);
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 4px;
   }
 
   /* ── SERVICE ITEM ── */
@@ -174,13 +187,13 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 8px;
+    gap: 12px;
   }
 
   .service-name {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: clamp(20px, 1.5vw, 24px);
+    font-weight: 600;
+    font-size: clamp(21px, 1.58vw, 25px);
     color: var(--text-dark);
     letter-spacing: 0.01em;
     flex-shrink: 0;
@@ -196,7 +209,7 @@
   .service-price {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: clamp(18px, 1.3vw, 20px);
+    font-size: clamp(20px, 1.45vw, 23px);
     color: var(--gold-dark);
     white-space: nowrap;
   }
@@ -224,22 +237,22 @@
 
   /* ── MASSAGE TIERS ── */
   .massage-service {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
 
   .massage-name {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: clamp(20px, 1.5vw, 24px);
+    font-weight: 600;
+    font-size: clamp(19px, 1.42vw, 23px);
     color: var(--text-dark);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     letter-spacing: 0.01em;
   }
 
   .massage-tiers {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 2px;
     padding-left: 2px;
   }
 
@@ -252,9 +265,9 @@
   .tier-price {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: clamp(18px, 1.3vw, 20px);
+    font-size: clamp(20px, 1.45vw, 23px);
     color: var(--gold-dark);
-    width: 58px;
+    width: 54px;
   }
 
   .tier-sep {
@@ -270,7 +283,7 @@
     font-size: clamp(12px, 0.95vw, 14px);
     letter-spacing: 0.08em;
     color: var(--gold-dark);
-    padding: 3px 10px 2px;
+    padding: 2px 8px 1px;
     border: 1px solid rgba(184,147,90,0.35);
     border-radius: 999px;
     background: rgba(184,147,90,0.08);
@@ -279,13 +292,13 @@
 
   /* ── BEAUTY COL ── */
   .beauty-service {
-    margin-bottom: 14px;
+    margin-bottom: 8px;
   }
 
   .beauty-name {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: clamp(20px, 1.5vw, 24px);
+    font-weight: 600;
+    font-size: clamp(21px, 1.58vw, 25px);
     color: var(--text-dark);
     margin-bottom: 4px;
   }
@@ -305,7 +318,7 @@
   /* ── ADD-ONS ── */
   .addons-section {
     margin-top: 12px;
-    padding: 28px 28px;
+    padding: 26px 28px;
     border: 1px solid var(--divider);
     background: rgba(184,147,90,0.05);
     border-radius: 12px;
@@ -347,7 +360,7 @@
   .addon-price {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: clamp(19px, 1.35vw, 22px);
+    font-size: clamp(21px, 1.5vw, 24px);
     color: var(--gold-dark);
   }
 
