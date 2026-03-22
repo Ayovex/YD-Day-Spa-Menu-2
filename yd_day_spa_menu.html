@@ -149,6 +149,22 @@
     gap: 8px;
   }
 
+  .featured-col .service-name,
+  .featured-col .beauty-name,
+  .featured-col .massage-name {
+    font-size: clamp(22px, 1.65vw, 26px);
+  }
+
+  .featured-col .service-price,
+  .featured-col .tier-price {
+    font-size: clamp(19px, 1.4vw, 21px);
+  }
+
+  .featured-col .service-duration,
+  .featured-col .tier-duration {
+    font-size: clamp(13px, 1vw, 15px);
+  }
+
   /* ── SERVICE ITEM ── */
   .service {
     margin-bottom: 0;
@@ -289,7 +305,7 @@
   /* ── ADD-ONS ── */
   .addons-section {
     margin-top: 12px;
-    padding: 18px 20px;
+    padding: 28px 28px;
     border: 1px solid var(--divider);
     background: rgba(184,147,90,0.05);
     border-radius: 12px;
@@ -298,20 +314,20 @@
   .addons-title {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: clamp(12px, 0.95vw, 14px);
+    font-size: clamp(18px, 1.35vw, 22px);
     letter-spacing: 0.28em;
     color: var(--gold);
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 14px;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
     border-bottom: 1px solid var(--divider);
   }
 
   .addons-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px 16px;
+    gap: 16px 24px;
   }
 
   .addon-item {
@@ -323,7 +339,7 @@
   .addon-name {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: clamp(15px, 1.05vw, 17px);
+    font-size: clamp(19px, 1.35vw, 22px);
     color: var(--text-mid);
     letter-spacing: 0.03em;
   }
@@ -331,7 +347,7 @@
   .addon-price {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: clamp(15px, 1.05vw, 17px);
+    font-size: clamp(19px, 1.35vw, 22px);
     color: var(--gold-dark);
   }
 
@@ -382,7 +398,7 @@
   <div class="menu-grid">
 
     <!-- COL 1: FACIALS -->
-    <div class="col col-fill">
+    <div class="col col-fill featured-col">
       <div class="col-title">Facials</div>
       <div class="services-list">
 
@@ -513,13 +529,13 @@
     <div class="col-divider"></div>
 
     <!-- COL 3: BEAUTY & SPA -->
-    <div class="col col-fill">
+    <div class="col col-fill featured-col">
       <div class="col-title">Beauty &amp; Spa</div>
       <div class="services-list beauty-services-list">
 
       <div class="beauty-service">
         <div class="service-row">
-          <span class="service-name">Head Therapy</span>
+          <span class="service-name">Head Spa</span>
           <span class="service-dots"></span>
           <span class="service-price">$119</span>
         </div>
@@ -551,6 +567,7 @@
           <div class="addon-item"><span class="addon-name">Essential Oil</span><span class="addon-price">$10</span></div>
           <div class="addon-item"><span class="addon-name">Eye Spa Therapy</span><span class="addon-price">$20</span></div>
           <div class="addon-item"><span class="addon-name">iRobot Massage</span><span class="addon-price">$10</span></div>
+          <div class="addon-item"><span class="addon-name">Gua Sha</span><span class="addon-price">$10</span></div>
         </div>
       </div>
 
