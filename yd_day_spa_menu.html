@@ -170,6 +170,11 @@
     font-size: clamp(22px, 1.65vw, 25px);
   }
 
+  .featured-col .service-meta {
+    min-width: 180px;
+    padding: 14px 20px 12px;
+  }
+
   .featured-col .service-duration,
   .featured-col .tier-duration {
     font-size: clamp(14px, 1.08vw, 16px);
@@ -186,8 +191,8 @@
   .service-row {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
+    align-items: center;
+    gap: 16px;
   }
 
   .service-name {
@@ -195,15 +200,29 @@
     font-weight: 600;
     font-size: clamp(21px, 1.58vw, 25px);
     color: var(--text-dark);
-    letter-spacing: 0.01em;
-    flex-shrink: 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .service-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    min-width: 120px;
+    padding: 12px 12px 10px;
+    border: 1px solid rgba(184,147,90,0.22);
+    border-radius: 16px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(184,147,90,0.06) 100%);
   }
 
   .service-dots {
-    flex: 1;
-    border-bottom: 1px dotted rgba(184,147,90,0.3);
-    margin: 0 8px;
-    margin-bottom: 4px;
+    display: none;
   }
 
   .service-price {
@@ -212,6 +231,7 @@
     font-size: clamp(20px, 1.45vw, 23px);
     color: var(--gold-dark);
     white-space: nowrap;
+    line-height: 1;
   }
 
   .service-duration {
@@ -221,7 +241,6 @@
     font-size: clamp(12px, 0.95vw, 14px);
     letter-spacing: 0.08em;
     color: var(--gold-dark);
-    margin-top: 6px;
     padding: 4px 10px 3px;
     border: 1px solid rgba(184,147,90,0.35);
     border-radius: 999px;
@@ -243,23 +262,33 @@
   .massage-name {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
-    font-size: clamp(19px, 1.42vw, 23px);
+    font-size: clamp(24px, 1.8vw, 29px);
     color: var(--text-dark);
     margin-bottom: 4px;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .massage-tiers {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding-left: 2px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(108px, 1fr));
+    gap: 10px;
+    padding-left: 0;
+    margin-top: 12px;
   }
 
   .massage-tier {
     display: flex;
-    gap: 0;
-    align-items: baseline;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 78px;
+    padding: 12px 10px 10px;
+    border: 1px solid rgba(184,147,90,0.22);
+    border-radius: 16px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(184,147,90,0.06) 100%);
   }
 
   .tier-price {
@@ -267,13 +296,12 @@
     font-weight: 400;
     font-size: clamp(20px, 1.45vw, 23px);
     color: var(--gold-dark);
-    width: 54px;
+    width: auto;
+    line-height: 1;
   }
 
   .tier-sep {
-    font-size: 12px;
-    margin: 0 6px;
-    color: var(--text-light);
+    display: none;
   }
 
   .tier-duration {
@@ -288,6 +316,7 @@
     border-radius: 999px;
     background: rgba(184,147,90,0.08);
     text-transform: uppercase;
+    text-align: center;
   }
 
   /* ── BEAUTY COL ── */
@@ -301,6 +330,8 @@
     font-size: clamp(21px, 1.58vw, 25px);
     color: var(--text-dark);
     margin-bottom: 4px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .beauty-tiers {
@@ -418,43 +449,56 @@
       <div class="service">
         <div class="service-row">
           <span class="service-name">White Wine Peel</span>
-          <span class="service-dots"></span>
-          <span class="service-price">$145</span>
+          <div class="service-meta">
+            <span class="service-price">$145</span>
+            <div class="service-duration">50 min</div>
+          </div>
         </div>
-        <div class="service-duration">50 min</div>
       </div>
+
+      <div class="service-divider"></div>
 
       <div class="service">
         <div class="service-row">
           <span class="service-name">Glow Hydro Facial</span>
-          <span class="service-dots"></span>
-          <span class="service-price">$175</span>
+          <div class="service-meta">
+            <span class="service-price">$175</span>
+            <div class="service-duration">70 min</div>
+          </div>
         </div>
-        <div class="service-duration">70 min</div>
       </div>
+
+      <div class="service-divider"></div>
 
       <div class="service">
         <div class="service-row">
           <span class="service-name">Ultimate Facial</span>
-          <span class="service-dots"></span>
-          <span class="service-price">$200</span>
+          <div class="service-meta">
+            <span class="service-price">$200</span>
+            <div class="service-duration">80 min</div>
+          </div>
         </div>
-        <div class="service-duration">80 min</div>
       </div>
+
+      <div class="service-divider"></div>
 
       <div class="service">
         <div class="service-row">
           <span class="service-name">Collagen Boosting</span>
-          <span class="service-dots"></span>
-          <span class="service-price">$245</span>
+          <div class="service-meta">
+            <span class="service-price">$245</span>
+          </div>
         </div>
       </div>
+
+      <div class="service-divider"></div>
 
       <div class="service">
         <div class="service-row">
           <span class="service-name">Firm Lift</span>
-          <span class="service-dots"></span>
-          <span class="service-price">$285</span>
+          <div class="service-meta">
+            <span class="service-price">$285</span>
+          </div>
         </div>
       </div>
 
@@ -549,10 +593,11 @@
       <div class="beauty-service">
         <div class="service-row">
           <span class="service-name">Head Spa</span>
-          <span class="service-dots"></span>
-          <span class="service-price">$119</span>
+          <div class="service-meta">
+            <span class="service-price">$119</span>
+            <div class="service-duration">60 min</div>
+          </div>
         </div>
-        <div class="service-duration">60 min</div>
       </div>
 
       <div class="service-divider"></div>
