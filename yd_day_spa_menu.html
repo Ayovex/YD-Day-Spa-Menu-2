@@ -144,6 +144,11 @@
     justify-content: space-between;
   }
 
+  .beauty-services-list {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
   /* ── SERVICE ITEM ── */
   .service {
     margin-bottom: 0;
@@ -181,12 +186,18 @@
   }
 
   .service-duration {
+    display: inline-block;
     font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: clamp(12px, 0.9vw, 14px);
-    letter-spacing: 0.12em;
-    color: var(--text-light);
-    margin-top: 2px;
+    font-weight: 400;
+    font-size: clamp(12px, 0.95vw, 14px);
+    letter-spacing: 0.08em;
+    color: var(--gold-dark);
+    margin-top: 6px;
+    padding: 4px 10px 3px;
+    border: 1px solid rgba(184,147,90,0.35);
+    border-radius: 999px;
+    background: rgba(184,147,90,0.09);
+    text-transform: uppercase;
   }
 
   .service-divider {
@@ -237,11 +248,17 @@
   }
 
   .tier-duration {
+    display: inline-block;
     font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: clamp(12px, 0.9vw, 14px);
-    letter-spacing: 0.1em;
-    color: var(--text-light);
+    font-weight: 400;
+    font-size: clamp(12px, 0.95vw, 14px);
+    letter-spacing: 0.08em;
+    color: var(--gold-dark);
+    padding: 3px 10px 2px;
+    border: 1px solid rgba(184,147,90,0.35);
+    border-radius: 999px;
+    background: rgba(184,147,90,0.08);
+    text-transform: uppercase;
   }
 
   /* ── BEAUTY COL ── */
@@ -271,21 +288,22 @@
 
   /* ── ADD-ONS ── */
   .addons-section {
-    margin-top: 18px;
-    padding: 16px 18px;
+    margin-top: 12px;
+    padding: 18px 20px;
     border: 1px solid var(--divider);
-    background: rgba(184,147,90,0.04);
+    background: rgba(184,147,90,0.05);
+    border-radius: 12px;
   }
 
   .addons-title {
     font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: clamp(11px, 0.8vw, 12px);
-    letter-spacing: 0.42em;
+    font-weight: 400;
+    font-size: clamp(12px, 0.95vw, 14px);
+    letter-spacing: 0.28em;
     color: var(--gold);
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--divider);
   }
@@ -293,7 +311,7 @@
   .addons-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px 14px;
+    gap: 10px 16px;
   }
 
   .addon-item {
@@ -304,16 +322,16 @@
 
   .addon-name {
     font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: clamp(14px, 1vw, 16px);
+    font-weight: 400;
+    font-size: clamp(15px, 1.05vw, 17px);
     color: var(--text-mid);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
   }
 
   .addon-price {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: clamp(14px, 1vw, 16px);
+    font-size: clamp(15px, 1.05vw, 17px);
     color: var(--gold-dark);
   }
 
@@ -322,21 +340,21 @@
     background: var(--cream-dark);
     border-top: 1px solid var(--divider);
     text-align: center;
-    padding: 16px 40px;
+    padding: 24px 44px 26px;
   }
 
   .banner-text {
     font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: clamp(12px, 0.9vw, 14px);
-    letter-spacing: 0.18em;
-    color: var(--text-mid);
+    font-weight: 600;
+    font-size: clamp(15px, 1.2vw, 20px);
+    letter-spacing: 0.12em;
+    color: var(--text-dark);
     text-transform: uppercase;
   }
 
   .banner-text span {
     color: var(--gold);
-    font-weight: 500;
+    font-weight: 700;
   }
 
   /* Decorative botanical — column 1 bottom */
@@ -497,7 +515,7 @@
     <!-- COL 3: BEAUTY & SPA -->
     <div class="col col-fill">
       <div class="col-title">Beauty &amp; Spa</div>
-      <div class="services-list">
+      <div class="services-list beauty-services-list">
 
       <div class="beauty-service">
         <div class="service-row">
