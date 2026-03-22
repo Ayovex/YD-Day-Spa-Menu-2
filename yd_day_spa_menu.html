@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YD Day Spa Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f5f0e8;
+    --cream-mid: #ede7da;
+    --cream-dark: #e3d9c8;
+    --gold: #b8935a;
+    --gold-light: #caa870;
+    --gold-dark: #9a7845;
+    --text-dark: #3a3028;
+    --text-mid: #6b5c48;
+    --text-light: #9a8b7a;
+    --divider: rgba(184,147,90,0.25);
+  }
+
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--cream);
+  }
+
+  body {
+    background-color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    color: var(--text-dark);
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .page {
+    width: 100vw;
+    height: 100vh;
+    background: var(--cream);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Subtle texture overlay */
+  .page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 0% 0%, rgba(184,147,90,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 100% 100%, rgba(184,147,90,0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    padding: 30px 48px 20px;
+    position: relative;
+  }
+
+  .header-rule {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-light), transparent);
+    margin-bottom: 20px;
+  }
+
+  .spa-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(44px, 3.4vw, 56px);
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .spa-tagline {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: clamp(10px, 0.8vw, 12px);
+    letter-spacing: 0.35em;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .header-rule-bottom {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-light), transparent);
+  }
+
+  /* ── BODY GRID ── */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr 1px 1fr;
+    flex: 1;
+    min-height: 0;
+    padding: 0 36px;
+    align-items: stretch;
+  }
+
+  .col-divider {
+    background: linear-gradient(to bottom, transparent, var(--divider) 15%, var(--divider) 85%, transparent);
+  }
+
+  .col {
+    padding: 24px 24px 18px;
+  }
+
+  /* ── COLUMN HEADING ── */
+  .col-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(24px, 1.9vw, 30px);
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  /* ── FILL COLS ── */
+  .col-fill {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-fill .services-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* ── SERVICE ITEM ── */
+  .service {
+    margin-bottom: 0;
+  }
+
+  .service-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(20px, 1.5vw, 24px);
+    color: var(--text-dark);
+    letter-spacing: 0.01em;
+    flex-shrink: 0;
+  }
+
+  .service-dots {
+    flex: 1;
+    border-bottom: 1px dotted rgba(184,147,90,0.3);
+    margin: 0 8px;
+    margin-bottom: 4px;
+  }
+
+  .service-price {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: clamp(18px, 1.3vw, 20px);
+    color: var(--gold-dark);
+    white-space: nowrap;
+  }
+
+  .service-duration {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: clamp(12px, 0.9vw, 14px);
+    letter-spacing: 0.12em;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  .service-divider {
+    height: 1px;
+    background: var(--divider);
+    margin: 12px 0;
+  }
+
+  /* ── MASSAGE TIERS ── */
+  .massage-service {
+    margin-bottom: 14px;
+  }
+
+  .massage-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(20px, 1.5vw, 24px);
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+  }
+
+  .massage-tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-left: 2px;
+  }
+
+  .massage-tier {
+    display: flex;
+    gap: 0;
+    align-items: baseline;
+  }
+
+  .tier-price {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: clamp(18px, 1.3vw, 20px);
+    color: var(--gold-dark);
+    width: 58px;
+  }
+
+  .tier-sep {
+    font-size: 12px;
+    margin: 0 6px;
+    color: var(--text-light);
+  }
+
+  .tier-duration {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: clamp(12px, 0.9vw, 14px);
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+  }
+
+  /* ── BEAUTY COL ── */
+  .beauty-service {
+    margin-bottom: 14px;
+  }
+
+  .beauty-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(20px, 1.5vw, 24px);
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .beauty-tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .beauty-tier {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+  }
+
+  /* ── ADD-ONS ── */
+  .addons-section {
+    margin-top: 18px;
+    padding: 16px 18px;
+    border: 1px solid var(--divider);
+    background: rgba(184,147,90,0.04);
+  }
+
+  .addons-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: clamp(11px, 0.8vw, 12px);
+    letter-spacing: 0.42em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .addons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+  }
+
+  .addon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .addon-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: clamp(14px, 1vw, 16px);
+    color: var(--text-mid);
+    letter-spacing: 0.04em;
+  }
+
+  .addon-price {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: clamp(14px, 1vw, 16px);
+    color: var(--gold-dark);
+  }
+
+  /* ── BOTTOM BANNER ── */
+  .banner {
+    background: var(--cream-dark);
+    border-top: 1px solid var(--divider);
+    text-align: center;
+    padding: 16px 40px;
+  }
+
+  .banner-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: clamp(12px, 0.9vw, 14px);
+    letter-spacing: 0.18em;
+    color: var(--text-mid);
+    text-transform: uppercase;
+  }
+
+  .banner-text span {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* Decorative botanical — column 1 bottom */
+  .botanical {
+    display: block;
+    margin-top: 16px;
+    opacity: 0.18;
+    width: 86px;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-rule"></div>
+    <div class="spa-name">YD Day Spa</div>
+    <div class="spa-tagline">Luxury Wellness Experience</div>
+    <div class="header-rule-bottom"></div>
+  </div>
+
+  <!-- MENU GRID -->
+  <div class="menu-grid">
+
+    <!-- COL 1: FACIALS -->
+    <div class="col col-fill">
+      <div class="col-title">Facials</div>
+      <div class="services-list">
+
+      <div class="service">
+        <div class="service-row">
+          <span class="service-name">White Wine Peel</span>
+          <span class="service-dots"></span>
+          <span class="service-price">$145</span>
+        </div>
+        <div class="service-duration">50 min</div>
+      </div>
+
+      <div class="service">
+        <div class="service-row">
+          <span class="service-name">Glow Hydro Facial</span>
+          <span class="service-dots"></span>
+          <span class="service-price">$175</span>
+        </div>
+        <div class="service-duration">70 min</div>
+      </div>
+
+      <div class="service">
+        <div class="service-row">
+          <span class="service-name">Ultimate Facial</span>
+          <span class="service-dots"></span>
+          <span class="service-price">$200</span>
+        </div>
+        <div class="service-duration">80 min</div>
+      </div>
+
+      <div class="service">
+        <div class="service-row">
+          <span class="service-name">Collagen Boosting</span>
+          <span class="service-dots"></span>
+          <span class="service-price">$245</span>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-row">
+          <span class="service-name">Firm Lift</span>
+          <span class="service-dots"></span>
+          <span class="service-price">$285</span>
+        </div>
+      </div>
+
+      <!-- botanical SVG decoration -->
+      <svg class="botanical" width="110" height="80" viewBox="0 0 110 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M55 75 C55 75 20 55 10 25 C22 40 38 50 55 55 C72 50 88 40 100 25 C90 55 55 75 55 75Z" fill="#b8935a"/>
+        <path d="M55 75 C55 75 35 45 28 10 C40 30 50 52 55 75Z" fill="#b8935a"/>
+        <path d="M55 75 C55 75 75 45 82 10 C70 30 60 52 55 75Z" fill="#b8935a"/>
+        <line x1="55" y1="10" x2="55" y2="75" stroke="#b8935a" stroke-width="0.8"/>
+      </svg>
+
+      </div>
+    </div>
+
+    <div class="col-divider"></div>
+
+    <!-- COL 2: MASSAGE -->
+    <div class="col">
+      <div class="col-title">Massage</div>
+
+      <div class="massage-service">
+        <div class="massage-name">Swedish Massage</div>
+        <div class="massage-tiers">
+          <div class="massage-tier"><span class="tier-price">$99</span><span class="tier-sep">·</span><span class="tier-duration">60 min</span></div>
+          <div class="massage-tier"><span class="tier-price">$139</span><span class="tier-sep">·</span><span class="tier-duration">90 min</span></div>
+          <div class="massage-tier"><span class="tier-price">$179</span><span class="tier-sep">·</span><span class="tier-duration">120 min</span></div>
+        </div>
+      </div>
+
+      <div class="service-divider"></div>
+
+      <div class="massage-service">
+        <div class="massage-name">Deep Tissue Massage</div>
+        <div class="massage-tiers">
+          <div class="massage-tier"><span class="tier-price">$109</span><span class="tier-sep">·</span><span class="tier-duration">60 min</span></div>
+          <div class="massage-tier"><span class="tier-price">$159</span><span class="tier-sep">·</span><span class="tier-duration">90 min</span></div>
+          <div class="massage-tier"><span class="tier-price">$189</span><span class="tier-sep">·</span><span class="tier-duration">120 min</span></div>
+        </div>
+      </div>
+
+      <div class="service-divider"></div>
+
+      <div class="massage-service">
+        <div class="massage-name">Four Hands Massage</div>
+        <div class="massage-tiers">
+          <div class="massage-tier"><span class="tier-price">$189</span><span class="tier-sep">·</span><span class="tier-duration">60 min</span></div>
+          <div class="massage-tier"><span class="tier-price">$269</span><span class="tier-sep">·</span><span class="tier-duration">90 min</span></div>
+          <div class="massage-tier"><span class="tier-price">$349</span><span class="tier-sep">·</span><span class="tier-duration">120 min</span></div>
+        </div>
+      </div>
+
+      <div class="service-divider"></div>
+
+      <div class="massage-service">
+        <div class="massage-name">Lomi Lomi / Sports / Thai</div>
+        <div class="massage-tiers">
+          <div class="massage-tier"><span class="tier-price">$109</span><span class="tier-sep">·</span><span class="tier-duration">60 min</span></div>
+          <div class="massage-tier"><span class="tier-price">$149</span><span class="tier-sep">·</span><span class="tier-duration">90 min</span></div>
+          <div class="massage-tier"><span class="tier-price">$189</span><span class="tier-sep">·</span><span class="tier-duration">120 min</span></div>
+        </div>
+      </div>
+
+      <div class="service-divider"></div>
+
+      <div class="massage-service">
+        <div class="massage-name">Lymphatic Drainage</div>
+        <div class="massage-tiers">
+          <div class="massage-tier"><span class="tier-price">$119</span><span class="tier-sep">·</span><span class="tier-duration">60 min</span></div>
+          <div class="massage-tier"><span class="tier-price">$169</span><span class="tier-sep">·</span><span class="tier-duration">90 min</span></div>
+        </div>
+      </div>
+
+      <div class="service-divider"></div>
+
+      <div class="massage-service">
+        <div class="massage-name">Prenatal Massage</div>
+        <div class="massage-tiers">
+          <div class="massage-tier"><span class="tier-price">$119</span><span class="tier-sep">·</span><span class="tier-duration">60 min</span></div>
+          <div class="massage-tier"><span class="tier-price">$169</span><span class="tier-sep">·</span><span class="tier-duration">90 min</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-divider"></div>
+
+    <!-- COL 3: BEAUTY & SPA -->
+    <div class="col col-fill">
+      <div class="col-title">Beauty &amp; Spa</div>
+      <div class="services-list">
+
+      <div class="beauty-service">
+        <div class="service-row">
+          <span class="service-name">Head Therapy</span>
+          <span class="service-dots"></span>
+          <span class="service-price">$119</span>
+        </div>
+        <div class="service-duration">60 min</div>
+      </div>
+
+      <div class="service-divider"></div>
+
+      <div class="beauty-service">
+        <div class="massage-name">Body Scrub + Vichy Shower</div>
+        <div class="massage-tiers">
+          <div class="massage-tier"><span class="tier-price">$99</span><span class="tier-sep">·</span><span class="tier-duration">30 min</span></div>
+          <div class="massage-tier"><span class="tier-price">$169</span><span class="tier-sep">·</span><span class="tier-duration">60 min</span></div>
+        </div>
+      </div>
+
+      <div class="service-divider"></div>
+
+      <!-- ADD ONS -->
+      <div class="addons-section">
+        <div class="addons-title">Add Ons</div>
+        <div class="addons-grid">
+          <div class="addon-item"><span class="addon-name">Hot Stone</span><span class="addon-price">$10</span></div>
+          <div class="addon-item"><span class="addon-name">Table Shower</span><span class="addon-price">$20</span></div>
+          <div class="addon-item"><span class="addon-name">CBD Oil</span><span class="addon-price">$15</span></div>
+          <div class="addon-item"><span class="addon-name">Cupping</span><span class="addon-price">$20</span></div>
+          <div class="addon-item"><span class="addon-name">Herb Oil</span><span class="addon-price">$15</span></div>
+          <div class="addon-item"><span class="addon-name">Eye Spa Mask</span><span class="addon-price">$10</span></div>
+          <div class="addon-item"><span class="addon-name">Essential Oil</span><span class="addon-price">$10</span></div>
+          <div class="addon-item"><span class="addon-name">Eye Spa Therapy</span><span class="addon-price">$20</span></div>
+          <div class="addon-item"><span class="addon-name">iRobot Massage</span><span class="addon-price">$10</span></div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM BANNER -->
+  <div class="banner">
+    <div class="banner-text">Members receive <span>15% off</span> all services and free add-ons depending on membership tier.</div>
+  </div>
+
+</div>
+</body>
+</html>
