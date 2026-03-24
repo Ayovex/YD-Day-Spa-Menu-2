@@ -31,20 +31,22 @@
     background-color: var(--cream);
     font-family: 'Jost', sans-serif;
     color: var(--text-dark);
-    width: 100vw;
     min-height: 100vh;
-    padding: 0;
-    overflow: hidden;
+    padding: clamp(12px, 2vw, 28px);
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .page {
-    width: 100vw;
-    height: 100vh;
+    width: min(100%, 1820px);
+    min-height: calc(100vh - (clamp(12px, 2vw, 28px) * 2));
+    margin: 0 auto;
     background: var(--cream);
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;
+    border: 1px solid rgba(184,147,90,0.16);
   }
 
   /* Subtle texture overlay */
@@ -103,8 +105,7 @@
   .menu-grid {
     display: grid;
     grid-template-columns: 1fr 1px 1fr 1px 1fr;
-    flex: 1;
-    min-height: 0;
+    flex: 1 1 auto;
     padding: 0 36px;
     align-items: stretch;
   }
@@ -154,8 +155,8 @@
   }
 
   .beauty-services-list > .addons-section {
-    margin-top: -34px;
-    transform: translateY(-16px);
+    margin-top: 12px;
+    transform: none;
   }
 
   .featured-col .service-name,
@@ -555,6 +556,85 @@
     .botanical {
       width: 64px;
       margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 1180px) {
+    body {
+      padding: 12px;
+    }
+
+    .page {
+      min-height: auto;
+    }
+
+    .menu-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0 18px;
+      padding: 0 18px 18px;
+    }
+
+    .col-divider {
+      display: none;
+    }
+
+    .featured-col:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .header {
+      padding: 20px 20px 14px;
+    }
+
+    .spa-name {
+      font-size: clamp(34px, 9vw, 48px);
+      letter-spacing: 0.16em;
+    }
+
+    .spa-tagline {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      margin-bottom: 16px;
+    }
+
+    .menu-grid {
+      grid-template-columns: 1fr;
+      padding: 0 14px 14px;
+      gap: 0;
+    }
+
+    .col {
+      padding: 14px 8px 12px;
+    }
+
+    .featured-col:last-child {
+      grid-column: auto;
+    }
+
+    .service-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .service-meta {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .massage-tiers {
+      grid-template-columns: 1fr;
+    }
+
+    .addons-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .banner {
+      padding: 18px 20px 20px;
     }
   }
 </style>
